@@ -1,0 +1,7 @@
+server:
+  port: 8282
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.web.reactive: trace
+    io.netty: trace
