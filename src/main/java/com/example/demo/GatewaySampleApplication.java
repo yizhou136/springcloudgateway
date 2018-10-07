@@ -40,8 +40,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 /**
  * @author Spencer Gibb
  */
-@SpringBootConfiguration
-@EnableAutoConfiguration
+//@SpringBootConfiguration
+//@EnableAutoConfiguration
 ///@Import(AdditionalRoutes.class)
 public class GatewaySampleApplication {
 
@@ -187,7 +187,7 @@ public class GatewaySampleApplication {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         SpringApplication.run(GatewaySampleApplication.class, args);
     }
 }
