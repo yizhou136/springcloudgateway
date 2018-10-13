@@ -10,6 +10,142 @@ slice
 FileRegion  -》 FileChannel.tranferTo
 
 
+简单而有效的路由网关
+Spring 5.0，Spring Boot 2.0和Project Reactor
+Filter链
+安全，监控/埋点，和限流
+
+SpringCloudGateway是Spring官方基于Spring 5.0，Spring Boot 2.0和Project Reactor等技术开发的网关，
+Spring云网关旨在提供一种简单而有效的路由API的方法。
+Spring Cloud Gateway作为Spring Cloud生态系中的网关，目标是替代Netflix ZUUL，其不仅提供统一的路由方式，
+并且基于Filter链的方式提供了网关基本的功能，例如：等。
+
+
+
+PropertiesRouteDefinitionLocator    配置文件方式
+InMemoryRouteDefinitionRepository   内存方式
+RouteLocatorBuilder                 编码方式
+
+暴露http接口更新route
+RouteRefreshListener
+GatewayControllerEndpoint
+
+
+AdaptCachedBodyGlobalFilter
+ForwardPathFilter
+RouteToRequestUrlFilter
+WebsocketRoutingFilter
+NettyRoutingFilter
+ForwardRoutingFilter
+NettyWriteResponseFilter
+
+
+
+GatewayFilterFactory
+AbstractGatewayFilterFactory 
+SecureHeadersGatewayFilterFactory 
+StripPrefixGatewayFilterFactory 
+SetStatusGatewayFilterFactory 
+RetryGatewayFilterFactory 
+PreserveHostHeaderGatewayFilterFactory 
+RemoveRequestHeaderGatewayFilterFactory 
+RewritePathGatewayFilterFactory 
+ModifyResponseBodyGatewayFilterFactory 
+
+AddResponseHeaderGatewayFilterFactory 
+SetRequestHeaderGatewayFilterFactory 
+AddRequestParameterGatewayFilterFactory 
+AddRequestHeaderGatewayFilterFactory 
+SetResponseHeaderGatewayFilterFactory 
+
+SaveSessionGatewayFilterFactory 
+PrefixPathGatewayFilterFactory 
+RedirectToGatewayFilterFactory 
+HystrixGatewayFilterFactory 
+ModifyRequestBodyGatewayFilterFactory 
+RequestRateLimiterGatewayFilterFactory 
+AbstractChangeRequestUriGatewayFilterFactory 
+RemoveResponseHeaderGatewayFilterFactory 
+SetPathGatewayFilterFactory 
+
+
+
+
+
+
+大家好！
+	随着SpringBoot2、Spring5的发布，Spring把反应式编程的思想应用到了框架的各个方面，其中SpringCloudGateway项目又是综合了WebFlux、Reactor、Netty等技术开发的网关，旨在为微服务架构提供一种简单有效的统一的AP路由。本次分享做下SpringCloudGateway相关系列技术分享,以促进技术交流，请感兴趣的同学安排好自己的工作，到时准时参加。
+
+        技术分享相关信息如下：
+主题：SpringCloudGateway框架分析
+分享人：周国宝
+时间：例会结束后
+地点：例会会议室
+主要内容：
+1, SpringCloudGateway是什么
+   1,例子
+   2,实现原理
+   3,特性
+   4,动态更新Route
+2, 基石Reacter
+   1,介绍
+   2,Flux&Mono
+   3,特性与好处   
+   4,背压   
+   5,实现本质
+3, 基石Netty
+   1，示例
+   2, socket io模型
+      2.1 同步、异步、阻塞、非阻塞
+	  2.2 java selector & epoll
+	  2.3 netty vs nginx	  
+   2, 线程模型
+      2.1 Event-Loop
+	  2.2 handler-bound  group
+	  2.3 最佳实践
+	      1, 业务线程和IO线程隔离， IdleStateHandler除外		  
+   3，内存优化
+       3.1 HeapMemory & DirectMemory
+       3.1 内存碎片
+	   3.2 zero copy
+	   3.3 内存估算
+	   3.4 memory leak & refcount
+4, WebFlux介绍
+   1,介绍
+   2,启动过程    
+   3,实现原理  
+5, 展望
+   1，api-gateway
+   2, service-mesh
+   3, proxy   -- mysql , redis
+
+
+
+
+Project Reactor 
+Pivotal 公司
+Reactive Programming 
+Reactive Streams 规范
+
+implements
+
+
+reactor-core 和 reactor-ipc。
+Mono 实现了 org.reactivestreams.Publisher 接口，代表0到1个元素的发布者。
+Flux 同样实现了 org.reactivestreams.Publisher 接口，代表0到N个元素的发表者。
+SIGIO 
+EWOULDBLOCK 
+sigaction 
+select、poll、epoll、kqueue
+
+PoolArena    8
+PoolChunk    2048*8192=16m
+PoolSubpage  tiny:16|0~512[32] small:512|512~8192[4]  normal:8192~16m   huge:>16m
+PoolChunkList qinit, q000, q025, q050, q075, q100
+
+
+aio_read 
+
 
 delegate = {FilteringWebHandler@6012} "FilteringWebHandler [delegate=org.springframework.web.reactive.DispatcherHandler@1727e03a]"
  filters = {WebFilter[1]@6022} 

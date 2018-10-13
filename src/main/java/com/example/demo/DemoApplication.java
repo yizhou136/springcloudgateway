@@ -15,10 +15,11 @@ public class DemoApplication {
         return builder.routes()
                 .route(r ->
                         r.host("localhost:8282")
-                        //r.path("/image/webp")
-                        .filters(f ->
-                                f.addResponseHeader("X-AnotherHeader", "baz"))
-                        .uri("http://httpbin.org:80")
+                                //.and().path("/image")
+                                //r.path("/image/webp")
+                                .filters(f ->
+                                        f.addResponseHeader("X-AnotherHeader", "baz"))
+                                .uri("http://www.sogou.com")
                 )
                 .route(r ->
                         r.host("127.0.0.1:8282")
@@ -29,6 +30,7 @@ public class DemoApplication {
                 )
                 .build();
     }
+
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }

@@ -13,6 +13,6 @@ public class ProtocolDetectNettyCustomizer implements NettyServerCustomizer {
     @Override
     public void customize(HttpServerOptions.Builder builder) {
         logger.info("builder:{}", builder);
-        builder.afterChannelInit()
+        //builder.afterChannelInit()
     }
 }

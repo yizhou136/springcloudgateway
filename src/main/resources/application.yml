@@ -1,5 +1,24 @@
 server:
   port: 8282
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: hostname
+        uri: http://www.sogou.com
+        predicates:
+        - Host=localhost:8282
+        - Method=GET
+        filters:
+        - AddRequestHeader=X-Request-Foo, Bar
+      - id: hostip
+        uri: http://www.163.com
+        predicates:
+        - Host=127.0.0.1:8282
+        - Method=POST
+        filters:
+        - AddRequestHeader=X-Request-Foo, Bar
+
 logging:
   level:
     org.springframework.cloud.gateway: trace
